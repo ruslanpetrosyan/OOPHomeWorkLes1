@@ -2,13 +2,9 @@ package transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
+
     private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
     private String transmission;
     private final String bodyType;
     private String registrationNumber;
@@ -16,46 +12,38 @@ public class Car {
     private boolean summerTyres;
 
 
-    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int seats) {
-        if (brand == null || brand.isEmpty()) {
-            brand = "default";
-        }
-        this.brand = brand;
+    public Car(String brand,
+               String model,
+               double engineVolume,
+               String color,
+               int productionYear,
+               String productionCountry,
+               int maxSpeed,
+               String transmission,
+               String bodyType,
+               String registrationNumber,
+               int seats) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
 
-        if (model == null || model.isEmpty()) {
-            model = "default";
-        }
-        this.model = model;
+
 
         if (engineVolume <= 0) {
             engineVolume = 1.5;
         }
         this.engineVolume = engineVolume;
 
-        if (color == null || color.isEmpty()) {
-            color = "Белый";
-        }
-        this.color = color;
-
-        if (productionYear < 0) {
-            productionYear = 2000;
-        }
-        this.productionYear = productionYear;
-
-        if (productionCountry == null || productionCountry.isEmpty()) {
-            productionCountry = "default";
-        }
-        this.productionCountry = productionCountry;
 
         if (transmission == null || transmission.isEmpty()) {
             transmission = "МКПП";
         }
         this.transmission = transmission;
 
-        if (bodyType == null || bodyType.isEmpty()) {
+
+        if (bodyType == null || bodyType.isBlank()) {
             bodyType = "седан";
         }
         this.bodyType = bodyType;
+
 
         if (registrationNumber == null || registrationNumber.isEmpty()) {
             registrationNumber = "х000хх000";
@@ -66,22 +54,6 @@ public class Car {
             seats = 5;
         }
         this.seats = seats;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
     }
 
     public String getBodyType() {
@@ -101,14 +73,6 @@ public class Car {
             engineVolume = 1.5;
         }
         this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getTransmission() {
@@ -147,7 +111,12 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" + "brand='" + brand + '\'' + ", model='" + model + '\'' + ", engineVolume=" + engineVolume + ", color='" + color + '\'' + ", productionYear=" + productionYear + ", productionCountry='" + productionCountry + '\'' + ", transmission='" + transmission + '\'' + ", bodyType='" + bodyType + '\'' + ", registrationNumber='" + registrationNumber + '\'' + ", seats=" + seats + '}';
+        return "Car{" + "brand='" + getBrand() + '\'' + ", model='" + getModel() + '\'' + ", engineVolume="
+                + engineVolume + ", color='" + getColour() + '\'' + ", productionYear=" + getProductionYear()
+                + ", productionCountry='" + getProductionCountry() + '\'' + ", transmission='" + transmission
+                + '\'' + ", maxSpeed='" + getMaxSpeed() + '\'' + ", bodyType='" + bodyType + '\''
+                + ", registrationNumber='" + registrationNumber
+                + '\'' + ", seats=" + seats + '}';
     }
 
     public static class Key {

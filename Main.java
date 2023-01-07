@@ -1,14 +1,15 @@
+import transport.Bus;
 import transport.Car;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car("Lada", "Granta", 1.7, "желтый", 2015, "Россия", null, null, null, 0);
-        Car audiA8 = new Car("Audi", "A8 50 L TDI", 3.0, "черный", 2020, "Германия", null, null, null, 0);
-        Car bmwZ8 = new Car("BMW", "Z8", 3.0, "черный", 2021, "Германия", null, null, null, 0);
-        Car kiaSportage = new Car("Kia", "Sportage", 2.4, "красный", 2018, "Южная Корея", null, null, null, 0);
-        Car hyundaiAvante = new Car("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южная Корея", null, null, null, 0);
+        Car ladaGranta = new Car("Lada", "Granta", 1.7, "желтый", 2015,"Россия",0,null,null,null,0);
+        Car audiA8 = new Car("Audi", "A8 50 L TDI", 3.0, "черный", 2020,"Германия",0,null,null,null,0);
+        Car bmwZ8 = new Car("BMW", "Z8", 3.0, "черный", 2021,"Германия",0,null,null,null,0);
+        Car kiaSportage = new Car("Kia", "Sportage", 2.4, "красный", 2018,"Южная Корея",0,null,null,null,0);
+        Car hyundaiAvante = new Car("Hyundai", "Avante", 1.6, "оранжевый",2016,"Южная Корея",0,null,null,null,0);
 
         System.out.println(ladaGranta);
         System.out.println(audiA8);
@@ -46,6 +47,16 @@ public class Main {
                 }
         );
         bouquet.printInfo();
+
+        Bus liaz = new Bus("ЛИАЗ", "677", 1994, "Россия", "синий", 70);
+        Bus zis = new Bus("ЗИС", "155", 1949, "Россия", "желтый", 65);
+        Bus paz = new Bus("ПАЗ", "3205", 1989, "Россия", "белый", 90);
+
+
+        System.out.println();
+        System.out.println(liaz);
+        System.out.println(zis);
+        System.out.println(paz);
     }
 
 }
